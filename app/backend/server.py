@@ -11,6 +11,12 @@ import uuid
 from datetime import datetime, timezone
 import requests
 import re
+from fastapi.responses import JSONResponse
+
+@app.get("/")
+def root():
+    return JSONResponse({"ok": True, "message": "MovieBot backend is running", "docs": "/docs"})
+
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
